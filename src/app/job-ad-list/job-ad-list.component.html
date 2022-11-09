@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="wrapper">
+        <div class="search">
+            <div class="left">
+                <input class="filter input" placeholder="Search..." type="text"
+                    [formControl]="search">
+                <select class="filter select" [formControl]="isPublished" (change)="redirect()">
+                    <option [ngValue]="null">All ads</option>
+                    <option [ngValue]="true">Published</option>
+                    <option [ngValue]="false">Not published</option>
+                </select>
+            </div>
+            <div class="right">
+                <a class="new-ad" mat-flat-button [routerLink]="['/ad-form/create']">NEW AD</a>
+            </div>
+        </div>
+        <div class="item" *ngFor="let jobAd of jobAds">
+            <div class="top">
+                <div>
+                    <div class="main">
+                        <div class="title">{{ jobAd.title }}</div>
+                        <div class="buttons">
+                            <button mat-button color="accent" *ngIf="!jobAd.isPublished" (click)="publish(jobAd._id)">Publish</button>
+                            <a mat-button color="primary" [routerLink]="[ '/ad-form', jobAd._id ]">Edit</a>
+                            <button mat-button color="warn" (click)="delete(jobAd._id)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills" *ngIf="jobAd.skills.length > 0">
+                    <span class="caption">Skills:</span>
+                    <span class="skill" *ngFor="let skill of jobAd.skills">
+                        {{ skill }}
+                    </span>
+                </div>
+            </div>
+            <div class="bottom">
+                <span class="caption">Description:</span>
+                <div class="description">{{ jobAd.description }}</div>
+            </div>
+            <div class="mobile-buttons">
+                <button mat-button color="accent" *ngIf="!jobAd.isPublished" (click)="publish(jobAd._id)">Publish</button>
+                <a mat-button color="primary" [routerLink]="[ '/ad-form', jobAd._id ]">Edit</a>
+                <button mat-button color="warn" (click)="delete(jobAd._id)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

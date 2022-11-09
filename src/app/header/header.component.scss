@@ -1,0 +1,43 @@
+@import "../../assets/scss/variables.scss";
+
+.header {
+    width: 100%;
+    background-color: $color-gray-light;
+    
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+
+        a {
+            text-decoration: none;
+        }
+
+        .logo {
+            font-size: 40px;
+            font-weight: bold;
+            color: $color-secondary;
+        }
+
+        .links {
+            @media (max-width: 600px) {
+                display: none;
+            }
+
+            .link {
+                margin-left: 20px;
+                font-size: 20px;
+                color: $color-primary;
+            }
+        }
+
+        .menu {
+            @media (min-width: 601px) {
+                display: none;
+            }
+
+            cursor: pointer;
+        }
+    }
+}

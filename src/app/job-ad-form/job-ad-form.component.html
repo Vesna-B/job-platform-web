@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="wrapper">
+        <div class="box">
+            <div class="headline">JOB AD</div>
+            <div class="form" [formGroup]="form">
+                <div class="item">
+                    <div class="caption">Title</div>
+                    <div class="form-input">
+                        <input formControlName="title">
+                    </div>
+                    <div class="error" *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+                        <span *ngIf="title?.errors?.['required']">*This field is required.</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="caption">Description</div>
+                    <div class="form-input">
+                        <textarea formControlName="description"></textarea>
+                    </div>
+                    <div class="error" *ngIf="description?.invalid && (description?.dirty || description?.touched)">
+                        <span *ngIf="description?.errors?.['required']">*This field is required.</span>
+                        <span *ngIf="description?.errors?.['minlength']">*Length should not be less than 10 characters.</span>
+                    </div>
+                </div>
+                <div class="item" formArrayName="skills">
+                    <div class="row group-caption">
+                        <div class="caption">Skills</div>
+                        <button class="add-btn" mat-mini-fab (click)="addSkill()"><mat-icon>add</mat-icon></button>
+                    </div>
+                    <div class="form-input-group" *ngFor="let skill of skills.controls; let i = index">
+                        <div class="form-input row skill">
+                            <input [formControlName]="i">
+                            <button mat-mini-fab color="warn" (click)="removeSkill(i)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="button draft" mat-flat-button (click)="submit(false)">Save draft</button>
+                    <button class="button publish" mat-flat-button (click)="submit(true)">Publish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

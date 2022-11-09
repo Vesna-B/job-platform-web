@@ -1,0 +1,18 @@
+<div class="header">
+    <div class="container">
+        <div class="wrapper">
+            <a class="logo" [routerLink]="['']">JobPlatform</a>
+            <div class="links">
+                <a class="link" [routerLink]="['']">Home</a>
+                <a class="link" [routerLink]="['/ad-list']">Jobs</a>
+            </div>
+            <div class="menu" [matMenuTriggerFor]="menu">
+                <img src="assets/img/header-menu.svg">
+            </div>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['']">Home</button>
+                <button mat-menu-item [routerLink]="['/ad-list']">Jobs</button>
+            </mat-menu>
+        </div>
+    </div>
+</div>

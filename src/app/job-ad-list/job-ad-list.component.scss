@@ -1,0 +1,124 @@
+@import "../../assets/scss/variables.scss";
+
+
+.wrapper {
+    padding: 50px 0;
+}
+
+.search {
+    margin: 0 0 30px;
+    padding: 0 0 30px;
+    border-bottom: 1px solid $color-gray-border;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left {
+        display: flex;
+        align-items: flex-start;
+
+        .filter {
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+
+        .input {
+            width: 300px;
+            height: 30px;
+            margin: 0 20px 0 0;
+        }
+
+        .select {
+            width: 150px;
+            height: 44px;
+        }
+    }
+
+    .right {
+        .new-ad {
+            font-size: 18px;
+            background-color: $color-primary;
+            color: white;
+        }
+    }
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+
+        .left {
+            width: 80%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            .input, .select {
+                width: 100%;
+                margin: 0 0 20px;
+            }
+        }
+    }
+}
+
+.item {
+    margin: 20px 0;
+    padding: 20px;
+    border: none;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.04);
+    font-size: 16px;
+
+    .top {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid $color-gray-border;
+
+        .main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .title {
+                font-size: 30px;
+                font-weight: 500;
+                line-height: 35px;
+                color: $color-primary;
+            }
+
+            .buttons {
+                @media (max-width: 767px) {
+                    display: none;
+                }
+            }
+        }
+
+        .skills {
+            margin: 15px 0 0;
+
+            .skill {
+                font-weight: 500;
+            }
+        }
+    }
+
+    .bottom {
+        .description {
+            margin: 10px 0 0;
+            line-height: 28px;
+        }
+    }
+
+    .caption {
+        color: $color-gray-letter;
+    }
+
+    .mobile-buttons {
+        @media (min-width: 768px) {
+            display: none;
+        }
+
+        margin: 40px 0 0;
+        padding: 15px 0 0;
+        border-top: 1px solid $color-gray-border;
+        display: flex;
+        justify-content: center;
+    }
+}
